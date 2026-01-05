@@ -6,13 +6,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Type extends Model
+class Route extends Model
 {
     use HasFactory;
     
-    protected $fillable = ['name', 'description'];
-    public function transportations():HasMany
+    // Ganti dari $guarded ke $fillable
+    protected $fillable = ['departure', 'arrival'];
+    public function schedules():HasMany
     {
-        return $this->hasMany(Transportation::class);
+        return $this->hasMany(Schedule::class);
     }
 }

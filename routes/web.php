@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RouteController;
+use App\Http\Controllers\TransportationController;
 use App\Http\Controllers\TypeController;
 use Illuminate\Support\Facades\Route;
 
@@ -16,6 +17,7 @@ Route::middleware(['auth','verified'])->group(function(){
 
     Route::resource('types',TypeController::class);
     Route::resource('routes',RouteController::class);
+    Route::resource('transportations',TransportationController::class);
 });
 
 Route::middleware('auth')->group(function () {

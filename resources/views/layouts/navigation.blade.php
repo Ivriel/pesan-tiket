@@ -24,6 +24,10 @@
                         {{ __('Routes') }}
                     </x-nav-link>
 
+                    <x-nav-link :href="route('transportations.index')" :active="request()->routeIs('transportations.*')">
+                        {{ __('Transportations') }}
+                    </x-nav-link>
+
                 </div>                 
             </div>
 
@@ -87,6 +91,10 @@
             
              <x-responsive-nav-link :href="route('routes.index')" :active="request()->routeIs('routes.*')">
                 {{ __('Routes') }}
+            </x-responsive-nav-link>
+
+             <x-responsive-nav-link :href="route('transportations.index')" :active="request()->routeIs('transportations.*')">
+                {{ __('Transportations') }}
             </x-responsive-nav-link>
 
             </div>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RouteController;
 use App\Http\Controllers\TypeController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +15,7 @@ Route::middleware(['auth','verified'])->group(function(){
     })->name('dashboard');
 
     Route::resource('types',TypeController::class);
+    Route::resource('routes',RouteController::class);
 });
 
 Route::middleware('auth')->group(function () {

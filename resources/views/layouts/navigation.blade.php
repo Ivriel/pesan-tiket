@@ -20,6 +20,10 @@
                         {{ __('Types') }}
                     </x-nav-link>
 
+                     <x-nav-link :href="route('routes.index')" :active="request()->routeIs('routes.*')">
+                        {{ __('Routes') }}
+                    </x-nav-link>
+
                 </div>                 
             </div>
 
@@ -79,6 +83,12 @@
              <x-responsive-nav-link :href="route('types.index')" :active="request()->routeIs('types.*')">
                 {{ __('Types') }}
             </x-responsive-nav-link>
+
+            
+             <x-responsive-nav-link :href="route('routes.index')" :active="request()->routeIs('routes.*')">
+                {{ __('Routes') }}
+            </x-responsive-nav-link>
+
             </div>
 
         <!-- Responsive Settings Options -->

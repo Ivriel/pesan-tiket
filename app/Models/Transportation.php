@@ -12,7 +12,7 @@ class Transportation extends Model
     
     use HasFactory;
     
-    protected $fillable = ['name', 'code', 'total_seat', 'type_id'];
+    protected $fillable = ['name', 'code', 'total_seat', 'image', 'type_id'];
     public function type():BelongsTo
     {
         return $this->belongsTo(Type::class);

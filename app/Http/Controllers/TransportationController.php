@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Transportation;
 use App\Models\Type;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class TransportationController extends Controller
 {
@@ -82,9 +83,31 @@ class TransportationController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Transportation $transportation)
     {
-        //
+        $validatedRequest = $request->validate(
+            [
+            'name' => 'required|string|max:255',
+            'code' => 'required|string|max:255',
+            'total_seat' => 'required|integer|min:1',
+            'type_id' => 'required|exists:types,id',
+            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048'
+            ]
+        );
+
+        if($request->hasFile('image')) {
+             // Delete old image if exists
+            if($transportation->image && Storage::disk('public')) {
+                Storage::disk('public')->delete($transportation->image);
+            }
+
+            $path = $request->file('image')->store('transportations','public');
+            $validatedRequest['image'] = $path;
+        }
+
+        $transportation->update($validatedRequest);
+
+        return redirect()->route('transportations.index');
     }
 
     /**

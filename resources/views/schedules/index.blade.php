@@ -57,14 +57,14 @@
                                             <div class="absolute left-0 top-1 w-4 h-4 rounded-full border-4 border-white dark:border-gray-800 bg-indigo-500 shadow-[0_0_0_2px_rgba(99,102,241,0.3)]"></div>
                                             <p class="text-[10px] uppercase tracking-widest text-gray-400 font-bold">Keberangkatan</p>
                                             <p class="text-sm font-bold text-gray-800 dark:text-gray-200">{{ $schedule->route->departure }}</p>
-                                            <p class="text-xs text-gray-500">{{ \Carbon\Carbon::parse($schedule->departure)->translatedFormat('d M Y • H:i') }}</p>
+                                            <p class="text-xs text-gray-500">{{ \Carbon\Carbon::parse($schedule->date_departure)->translatedFormat('d M Y • H:i') }}</p>
                                         </div>
 
                                         <div class="relative pl-8">
                                             <div class="absolute left-0 top-1 w-4 h-4 rounded-full border-4 border-white dark:border-gray-800 bg-gray-300 dark:bg-gray-500"></div>
                                             <p class="text-[10px] uppercase tracking-widest text-gray-400 font-bold">Tujuan</p>
                                             <p class="text-sm font-bold text-gray-800 dark:text-gray-200">{{ $schedule->route->arrival }}</p>
-                                            <p class="text-xs text-gray-500">{{ \Carbon\Carbon::parse($schedule->arrival)->translatedFormat('d M Y • H:i') }}</p>
+                                            <p class="text-xs text-gray-500">{{ \Carbon\Carbon::parse($schedule->date_arrival)->translatedFormat('d M Y • H:i') }}</p>
                                         </div>
                                     </div>
                                 </div>

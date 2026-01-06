@@ -65,9 +65,13 @@ class ScheduleController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Schedule $schedule)
     {
-        //
+        return view('schedules.edit', [
+            'schedule' => $schedule,
+            'transportations' => Transportation::all(),
+            'routes' => Route::all(),
+        ]);
     }
 
     /**
@@ -75,7 +79,17 @@ class ScheduleController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $rules = [
+            'transportation_id' => 'required|exists:transportations,id',
+            'route_id' => 'required|exists:routes,id',
+            'date_departure' => 'required|date|after_or_equal:now', // tanggal dan waktu gabisa lampau. minimal harus sekarang
+            'date_arrival' => 'required|date|after:date_departure', // harus setelah departure
+            'price' => 'required|numeric|min:0',
+        ];
+        $validatedData = $request->validate($rules);
+        Schedule::where('id', $id)->update($validatedData);
+
+        return redirect()->route('schedules.index');
     }
 
     /**

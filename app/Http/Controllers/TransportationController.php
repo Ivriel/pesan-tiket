@@ -38,7 +38,7 @@ class TransportationController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'code' => 'required|string|max:255',
+            'code' => 'required|string|max:255|unique:transporations,code',
             'total_seat' => 'required|integer|min:1',
             'type_id' => 'required|exists:types,id',
             'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048'
@@ -88,7 +88,8 @@ class TransportationController extends Controller
         $validatedRequest = $request->validate(
             [
             'name' => 'required|string|max:255',
-            'code' => 'required|string|max:255',
+            // Gunakan variabel $transportation->id untuk mengabaikan data diri sendiri
+            'code' => 'required|string|max:255|unique:transportations,code,' . $transportation->id,
             'total_seat' => 'required|integer|min:1',
             'type_id' => 'required|exists:types,id',
             'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048'

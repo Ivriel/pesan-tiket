@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RouteController;
+use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\TransportationController;
 use App\Http\Controllers\TypeController;
 use Illuminate\Support\Facades\Route;
@@ -10,14 +11,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware(['auth','verified'])->group(function(){
-    Route::get('/dashboard',function(){
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
 
-    Route::resource('types',TypeController::class);
-    Route::resource('routes',RouteController::class);
-    Route::resource('transportations',TransportationController::class);
+    Route::resource('types', TypeController::class)->except('show');
+    Route::resource('routes', RouteController::class)->except('show');
+    Route::resource('transportations', TransportationController::class)->except('show');
+    Route::resource('schedules', ScheduleController::class);
 });
 
 Route::middleware('auth')->group(function () {

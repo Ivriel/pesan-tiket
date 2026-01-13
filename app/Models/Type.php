@@ -9,10 +9,11 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Type extends Model
 {
     use HasFactory;
-    
-    protected $fillable = ['name', 'description'];
-    public function transportations():HasMany
+
+    protected $fillable = ['name', 'description', 'price'];
+
+    public function transactions(): HasMany
     {
-        return $this->hasMany(Transportation::class);
+        return $this->hasMany(Transaction::class);
     }
 }

@@ -22,6 +22,7 @@
                             <tr class="bg-gray-50 dark:bg-gray-700/50">
                                 <th class="px-6 py-4 text-sm font-semibold text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">Nama Tipe</th>
                                 <th class="px-6 py-4 text-sm font-semibold text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">Deskripsi</th>
+                                <th class="px-6 py-4 text-sm font-semibold text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">Harga</th>
                                 <th class="px-6 py-4 text-sm font-semibold text-center text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">Aksi</th>
                             </tr>
                         </thead>
@@ -33,6 +34,11 @@
                                     </td>
                                     <td class="px-6 py-4">
                                         <div class="text-sm text-gray-600 dark:text-gray-400 line-clamp-2">{{ $type->description }}</div>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <div class="text-sm text-gray-600 dark:text-gray-400 line-clamp-2">
+                                            Rp {{ number_format($type->price, 0, ',', '.') }}
+                                        </div>
                                     </td>
                                     <td class="px-6 py-4">
                                         <div class="flex justify-center items-center gap-3">

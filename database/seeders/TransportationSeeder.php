@@ -14,14 +14,12 @@ class TransportationSeeder extends Seeder
             'name' => 'Primajasa Executive',
             'code' => 'PJ-001',
             'total_seat' => 40,
-            'type_id' => 1
         ]);
 
         Transportation::create([
             'name' => 'Sinar Jaya Ekonomi',
-            'code' => 'SJ-045', 
+            'code' => 'SJ-045',
             'total_seat' => 45,
-            'type_id' => 1
         ]);
 
         // Travel
@@ -29,7 +27,6 @@ class TransportationSeeder extends Seeder
             'name' => 'Cipaganti Travel',
             'code' => 'CP-12',
             'total_seat' => 12,
-            'type_id' => 2
         ]);
 
         // Kereta
@@ -37,7 +34,6 @@ class TransportationSeeder extends Seeder
             'name' => 'Argo Bromo Anggrek',
             'code' => 'KA-ABA',
             'total_seat' => 200,
-            'type_id' => 3
         ]);
     }
 }

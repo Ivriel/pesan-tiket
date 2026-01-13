@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
 
         User::create([
             'name' => 'Petugas Loket',
-            'email' => 'petugas@pesantiket.com', 
+            'email' => 'petugas@pesantiket.com',
             'phone' => '081234567891',
             'role' => 'petugas',
             'password' => Hash::make('password123'),
@@ -37,7 +37,7 @@ class UserSeeder extends Seeder
         User::create([
             'name' => 'Sari Dewi',
             'email' => 'sari@gmail.com',
-            'phone' => '081234567893', 
+            'phone' => '081234567893',
             'role' => 'pelanggan',
             'password' => Hash::make('password123'),
         ]);

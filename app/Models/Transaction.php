@@ -11,7 +11,7 @@ class Transaction extends Model
 {
      use HasFactory;
 
-    protected $fillable = ['booking_code', 'user_id', 'schedule_id', 'total_amount', 'status'];
+    protected $fillable = ['booking_code', 'user_id', 'schedule_id', 'type_id', 'total_amount', 'status'];
     public function user():BelongsTo
     {
         return $this->belongsTo(User::class);
@@ -20,6 +20,11 @@ class Transaction extends Model
     public function schedule():BelongsTo
     {
         return $this->belongsTo(Schedule::class);
+    }
+
+    public function type():BelongsTo
+    {
+        return $this->belongsTo(Type::class);
     }
 
     public function transactionDetails():HasMany

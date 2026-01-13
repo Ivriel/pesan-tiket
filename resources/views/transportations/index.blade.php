@@ -28,12 +28,6 @@
                                     </svg>
                                 </div>
                             @endif
-                            
-                            <div class="absolute top-4 left-4">
-                                <span class="px-3 py-1 bg-blue-600/90 backdrop-blur-sm text-white text-xs font-bold rounded-full shadow-lg">
-                                    {{ $item->type->name }}
-                                </span>
-                            </div>
                         </div>
 
                         <div class="p-6 flex-grow">

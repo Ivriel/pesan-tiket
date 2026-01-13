@@ -30,7 +30,6 @@
                                 @endif
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
                                 <div class="absolute bottom-4 left-4 text-white">
-                                    <p class="text-xs font-medium opacity-80 uppercase tracking-wider">{{ $schedule->transportation->type->name }}</p>
                                     <h3 class="text-lg font-bold">{{ $schedule->transportation->name }}</h3>
                                     <div class="flex items-center mt-2 text-xs opacity-90">
                                         <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20"><path d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM2 11a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z"/></svg>
@@ -44,9 +43,6 @@
                                     <div class="flex justify-between items-center mb-4">
                                         <span class="text-xs font-mono px-2 py-1 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 rounded-lg font-bold">
                                             {{ $schedule->transportation->code }}
-                                        </span>
-                                        <span class="text-xl font-black text-emerald-600 dark:text-emerald-400">
-                                            IDR {{ number_format($schedule->price, 0, ',', '.') }}
                                         </span>
                                     </div>
 
@@ -85,7 +81,7 @@
 
                                     {{-- Spacing Pengkondisian Tombol Pesan --}}
                                     @if(true) {{-- Ganti dengan pengkondisian user (misal: if auth as passenger) --}}
-                                        <a href="#" class="w-full inline-flex justify-center items-center py-3 bg-indigo-600 text-white rounded-xl hover:bg-indigo-700 hover:shadow-lg hover:shadow-indigo-500/40 transition-all font-bold text-sm">
+                                        <a href="{{ route('bookings.index',$schedule->id) }}" class="w-full inline-flex justify-center items-center py-3 bg-indigo-600 text-white rounded-xl hover:bg-indigo-700 hover:shadow-lg hover:shadow-indigo-500/40 transition-all font-bold text-sm">
                                             <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z" />
                                             </svg>

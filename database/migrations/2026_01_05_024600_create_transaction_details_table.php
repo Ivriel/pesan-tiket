@@ -9,6 +9,8 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
+
+    // transaction detail ini untuk menyimpan data penumpang dari satu data transaksi. data penumpang bisa lebih dari satu (banyak) dari satu transaksi yang ada (one to many)
     public function up(): void
     {
         Schema::create('transaction_details', function (Blueprint $table) {

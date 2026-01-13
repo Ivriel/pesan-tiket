@@ -13,8 +13,9 @@ class TypeController extends Controller
     public function index()
     {
         $listType = Type::all();
-        return view('types.index',[
-            'listType' => $listType
+
+        return view('types.index', [
+            'listType' => $listType,
         ]);
     }
 
@@ -34,9 +35,11 @@ class TypeController extends Controller
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'description' => 'nullable|string|max:1000',
+            'price' => 'required|numeric',
         ]);
 
         Type::create($validatedData);
+
         return redirect()->route('types.index')->with('success', 'Type berhasil dibuat');
     }
 
@@ -53,8 +56,8 @@ class TypeController extends Controller
      */
     public function edit(Type $type)
     {
-        return view('types.edit',[
-            'type' => $type
+        return view('types.edit', [
+            'type' => $type,
         ]);
     }
 
@@ -66,10 +69,11 @@ class TypeController extends Controller
         $rules = [
             'name' => 'required|string|max:255',
             'description' => 'nullable|string|max:1000',
+            'price' => 'required|numeric',
         ];
 
         $validatedData = $request->validate($rules);
-        Type::where('id',$id)->update($validatedData);
+        Type::where('id', $id)->update($validatedData);
 
         return redirect()->route('types.index');
     }
@@ -80,6 +84,7 @@ class TypeController extends Controller
     public function destroy(string $id)
     {
         Type::destroy($id);
+
         return redirect()->route('types.index');
     }
 }

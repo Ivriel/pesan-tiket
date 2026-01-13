@@ -11,7 +11,7 @@ class Schedule extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['transportation_id', 'route_id', 'date_departure', 'date_arrival', 'price'];
+    protected $fillable = ['transportation_id', 'route_id', 'date_departure', 'date_arrival'];
     public function transportation():BelongsTo
     {
         return $this->belongsTo(Transportation::class);

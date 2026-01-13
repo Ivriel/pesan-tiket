@@ -14,7 +14,7 @@ class TransportationController extends Controller
      */
     public function index()
     {
-        $transportationList = Transportation::with('type')->get();
+        $transportationList = Transportation::all();
 
         return view('transportations.index', [
             'transportationList' => $transportationList,

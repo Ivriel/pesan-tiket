@@ -32,6 +32,12 @@
                            @enderror
                         </div>
 
+                        <div>
+                            <x-input-label for="price" :value="__('Harga')" />
+                            <x-text-input id="price" name="price" type="number" class="mt-1 block w-full" :value="old('price')" required autofocus placeholder="Contoh: 100000" />
+                            <x-input-error class="mt-2 text-red-500" :messages="$errors->get('price')" />
+                        </div>
+
                         <div class="flex items-center gap-4">
                             <x-primary-button>{{ __('Simpan Type') }}</x-primary-button>
                             

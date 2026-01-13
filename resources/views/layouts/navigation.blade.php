@@ -33,6 +33,11 @@
                         {{ __('Schedules') }}
                     </x-nav-link>
 
+                     <x-nav-link :href="route('bookings.list')" :active="request()->routeIs('bookings.*')">
+                        {{ __('Bookings') }}
+                    </x-nav-link>
+
+
                 </div>                 
             </div>
 
@@ -104,6 +109,10 @@
 
             <x-responsive-nav-link :href="route('schedules.index')" :active="request()->routeIs('schedules.*')">
                 {{ __('Schedules') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('bookings.list')" :active="request()->routeIs('bookings.*')">
+                {{ __('Bookings') }}
             </x-responsive-nav-link>
 
             </div>

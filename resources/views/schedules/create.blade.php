@@ -58,7 +58,7 @@
                                     <option value="{{ $transportation->id }}"
                                         data-image="{{ $transportation->image ? asset('storage/' . $transportation->image) : '' }}"
                                         {{ old('transportation_id') == $transportation->id ? 'selected' : '' }}>
-                                        {{ $transportation->name }} - {{ $transportation->type->name }} -
+                                        {{ $transportation->name }} -
                                         {{ $transportation->code }}
                                     </option>
                                 @endforeach

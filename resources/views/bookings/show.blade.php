@@ -119,8 +119,8 @@
                             </svg>
                             Cetak Tiket
                         </button>
-                        <a href="{{ route('dashboard') }}" class="flex-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-200 font-bold py-3.5 px-6 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-600 transition text-center flex items-center justify-center">
-                            Kembali ke Beranda
+                        <a href="{{ route('bookings.listd') }}" class="flex-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-200 font-bold py-3.5 px-6 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-600 transition text-center flex items-center justify-center">
+                            Kembali ke Daftar Booking
                         </a>
                     </div>
                 </div>

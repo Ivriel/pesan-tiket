@@ -81,10 +81,16 @@
                                                 {{ $booking->created_at->format('d M Y, H:i') }}
                                             </td>
                                             <td>
-                                                <a href="{{ route('bookings.show', $booking->id) }}"
+                                               <div class="flex items-center justify-center gap-4">
+                                                 <a href="{{ route('bookings.show', $booking->id) }}"
                                                     class="px-4 py-2 text-sm font-medium text-white bg-indigo-600 rounded-md hover:bg-indigo-700">
                                                     Detail
                                                 </a>
+                                                   <a href="{{ route('bookings.show', $booking->id) }}"
+                                                    class="px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-md hover:bg-red-700">
+                                                    Cancel
+                                                </a>
+                                               </div>
                                             </td>
                                         </tr>
                                     @endforeach

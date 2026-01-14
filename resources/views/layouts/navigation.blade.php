@@ -16,6 +16,8 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
 
+                    @if (auth()->user()->role === 'petugas' || auth()->user()->role === 'admin')
+                        
                       <x-nav-link :href="route('types.index')" :active="request()->routeIs('types.*')">
                         {{ __('Types') }}
                     </x-nav-link>
@@ -27,8 +29,10 @@
                     <x-nav-link :href="route('transportations.index')" :active="request()->routeIs('transportations.*')">
                         {{ __('Transportations') }}
                     </x-nav-link>
+                        
+                    @endif
 
-                    
+                                        
                     <x-nav-link :href="route('schedules.index')" :active="request()->routeIs('schedules.*')">
                         {{ __('Schedules') }}
                     </x-nav-link>
@@ -94,7 +98,8 @@
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
 
-             <x-responsive-nav-link :href="route('types.index')" :active="request()->routeIs('types.*')">
+            @if (auth()->user()->role === 'petugas' || auth()->user()->role === 'admin')
+                   <x-responsive-nav-link :href="route('types.index')" :active="request()->routeIs('types.*')">
                 {{ __('Types') }}
             </x-responsive-nav-link>
 
@@ -106,6 +111,8 @@
              <x-responsive-nav-link :href="route('transportations.index')" :active="request()->routeIs('transportations.*')">
                 {{ __('Transportations') }}
             </x-responsive-nav-link>
+
+            @endif
 
             <x-responsive-nav-link :href="route('schedules.index')" :active="request()->routeIs('schedules.*')">
                 {{ __('Schedules') }}

@@ -16,9 +16,9 @@ Route::get('/', function () {
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-    Route::resource('types', TypeController::class)->except('show');
-    Route::resource('routes', RouteController::class)->except('show');
-    Route::resource('transportations', TransportationController::class)->except('show');
+    Route::resource('types', TypeController::class)->except('show')->middleware('role:admin,petugas');
+    Route::resource('routes', RouteController::class)->except('show')->middleware('role:admin,petugas');
+    Route::resource('transportations', TransportationController::class)->except('show')->middleware('role:admin,petugas');
     Route::resource('schedules', ScheduleController::class);
     // Custom route untuk booking - urutan penting: specific routes dulu, dynamic routes terakhir
     Route::get('/bookings/list', [BookingController::class, 'listBooking'])->name('bookings.list');

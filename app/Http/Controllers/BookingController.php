@@ -58,6 +58,36 @@ class BookingController extends Controller
         //
     }
 
+    public function payBooking(string $id)
+    {
+        $transaction = Transaction::where('id', $id)
+            ->where('user_id', auth()->user()->id) // pastikan yang bisa cancel cuma dia doang
+            ->firstOrFail();
+
+        if ($transaction->status !== 'pending') {
+            return back()->with('error', 'Hanya pesanan pending yang bisa dibayar.');
+        }
+
+        $transaction->update(['status' => 'success']);
+
+        return back()->with('success', 'Pembayaran berhasil! Status tiket anda kini sukses');
+    }
+
+    public function cancelBooking(string $id)
+    {
+        $transaction = Transaction::where('id', $id)
+            ->where('user_id', auth()->user()->id)
+            ->firstOrFail();
+
+        if ($transaction->status !== 'pending') {
+            return back()->with('error', 'Pesanan yang sudah diproses tidak bisa dicancel');
+        }
+
+        $transaction->update(['status' => 'cancel']);
+
+        return redirect()->route('bookings.list')->with('success', 'Pesanan berhasil dibatalkan.');
+    }
+
     /**
      * Get available seats for AJAX request
      */

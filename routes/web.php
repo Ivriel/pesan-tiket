@@ -26,6 +26,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/bookings/{schedule}', [BookingController::class, 'index'])->name('bookings.index');
     Route::get('booking-details/{booking}', [BookingController::class, 'show'])->name('bookings.show');
     Route::get('/api/seats', [BookingController::class, 'getAvailableSeats'])->name('api.seats');
+    Route::patch('bookings/{id}/pay', [BookingController::class, 'payBooking'])->name('bookings.pay');
+    Route::patch('bookings/{id}/cancel', [BookingController::class, 'cancelBooking'])->name('bookings.cancel');
 });
 
 Route::middleware('auth')->group(function () {

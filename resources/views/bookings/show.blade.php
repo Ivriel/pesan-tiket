@@ -16,7 +16,10 @@
                     </div>
                     <div class="text-right">
                         <span class="bg-white/20 px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-sm uppercase tracking-wider">
-                            Terkonfirmasi
+                            @if($bookingDetail->status === 'pending') Menunggu Pembayaran
+                            @elseif($bookingDetail->status === 'success') Sukses
+                            @else Dibatalkan
+                            @endif
                         </span>
                     </div>
                 </div>

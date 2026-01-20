@@ -70,7 +70,7 @@ class BookingController extends Controller
 
         $transaction->update(['status' => 'success']);
 
-        return back()->with('success', 'Pembayaran berhasil! Status tiket anda kini sukses');
+        return redirect()->route('bookings.list')->with('success', 'Pembayaran berhasil! Status tiket anda kini sukses');
     }
 
     public function cancelBooking(string $id)

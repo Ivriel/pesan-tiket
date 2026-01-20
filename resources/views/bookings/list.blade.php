@@ -75,6 +75,7 @@
                                                     {{-- Tombol Bayar (Hanya Icon agar rapi) --}}
                                                     @if($booking->status === 'pending' && auth()->id() == $booking->user_id)
                                                         <form action="{{ route('bookings.pay', $booking->id) }}" method="POST"
+                                                            onsubmit="return confirm('Bayar pesanan #{{ $booking->booking_code }} Dari {{ $booking->schedule->route->departure }} Tujuan {{ $booking->schedule->route->arrival }}?')"
                                                             title="Bayar Sekarang">
                                                             @csrf @method('PATCH')
                                                             <button
